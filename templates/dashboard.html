@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h1>Grading Dashboard</h1>
+<p> Students </p>
+<table>
+  <tr>
+    <td>Student ID</td>
+    <td>First Name</td>
+    <td>Last Name</td>
+  </tr>
+ {% for student in students %}
+    <tr>
+        <td>{{student['student_id']}}</td>
+        <td>{{student['first_name']}}</td>
+        <td>{{student['last_name']}}</td>
+    </tr>
+ {% endfor %}
+</table>
+
+ <table>
+  <tr>
+    <td>QUIZ ID</td>
+    <td>Subject</td>
+    <td>Number of Questions</td>
+    <td>Quiz Date</td>
+
+  </tr>
+ {% for quiz in quiz %}
+    <tr>
+        <td>{{quiz['quiz_id']}}</td>
+        <td>{{quiz['subject']}}</td>
+        <td>{{quiz['questions']}}</td>
+        <td>{{quiz['quiz_date']}}</td>
+    </tr>
+ {% endfor %}
+ </table>
+
+
+ <a href="/student/add">Click here to add a student!</a>
+
+<a href="/quiz/add">Click here to add a quiz!</a>
+
+<a href="/results/add">Click here to add quiz results!</a>
+</body>
+</html>
+
+

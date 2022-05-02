@@ -1,0 +1,24 @@
+<h1> ADD QUIZ RESULT</h1>
+
+<form action="/results/add" method="post">
+<select name="student_id" >
+	<option selected="selected" value="Select Student">Select Student</option>
+	{% for student in students %}
+	<option value="{{ student['student_id'] }}">{{student['first_name']}},{{student['last_name']}}</option>
+ 	{% endfor %}
+</select>
+<select name="quiz_id">
+	<option selected="selected" value="Select quiz">Select Quiz</option>
+	{% for quiz in quiz %}
+	<option value="{{ quiz['quiz_id'] }}">{{quiz['subject']}}</option>
+ 	{% endfor %}
+</select>
+<h1> Enter quiz score </h1>
+		<input type="text" name="score" value="{{ request.form['score'] }}"></input>
+	<input type="submit" value="ADD">
+</form>
+	{% for message in get_flashed_messages() %}
+            <div class="alert">{{ message }}</div>
+	{% endfor %}
+
+

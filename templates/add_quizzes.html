@@ -1,0 +1,15 @@
+<h1> ADD QUIZZ </h1>
+<form action="/quiz/add" method="post">
+		<h1> Enter Quiz's Subject </h1>
+		<input type="text" name="subject" value="{{ request.form['subject'] }}"></input>
+
+		<h1> Enter Quiz's number of Questions </h1>
+		<input type="text" name="questions" value="{{ request.form['questions'] }}"></input>
+
+        <h1> Enter Quiz's Date</h1>
+		<input type="text" name="quiz_date" value="{{ request.form['quiz_date'] }}"></input>
+<input type="submit" value="ADD">
+</form>
+	{% for message in get_flashed_messages() %}
+            <div class="alert">{{ message }}</div>
+	{% endfor %}
